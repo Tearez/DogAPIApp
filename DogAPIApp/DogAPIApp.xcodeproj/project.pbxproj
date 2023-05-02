@@ -14,6 +14,7 @@
 		D8E113782A01570700086EA3 /* DogAPIAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113772A01570700086EA3 /* DogAPIAppTests.swift */; };
 		D8E113822A01570700086EA3 /* DogAPIAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113812A01570700086EA3 /* DogAPIAppUITests.swift */; };
 		D8E113842A01570700086EA3 /* DogAPIAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113832A01570700086EA3 /* DogAPIAppUITestsLaunchTests.swift */; };
+		D8E113922A01579C00086EA3 /* DogAPIPackage in Frameworks */ = {isa = PBXBuildFile; productRef = D8E113912A01579C00086EA3 /* DogAPIPackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E113922A01579C00086EA3 /* DogAPIPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,9 @@
 			dependencies = (
 			);
 			name = DogAPIApp;
+			packageProductDependencies = (
+				D8E113912A01579C00086EA3 /* DogAPIPackage */,
+			);
 			productName = DogAPIApp;
 			productReference = D8E113622A01570600086EA3 /* DogAPIApp.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +222,9 @@
 				Base,
 			);
 			mainGroup = D8E113592A01570600086EA3;
+			packageReferences = (
+				D8E113902A01579C00086EA3 /* XCRemoteSwiftPackageReference "DogAPIPackage" */,
+			);
 			productRefGroup = D8E113632A01570600086EA3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -612,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D8E113902A01579C00086EA3 /* XCRemoteSwiftPackageReference "DogAPIPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Tearez/DogAPIPackage.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D8E113912A01579C00086EA3 /* DogAPIPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8E113902A01579C00086EA3 /* XCRemoteSwiftPackageReference "DogAPIPackage" */;
+			productName = DogAPIPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D8E1135A2A01570600086EA3 /* Project object */;
 }

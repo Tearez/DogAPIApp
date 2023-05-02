@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "dogapipackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Tearez/DogAPIPackage.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1686def96c02b2faea8d628b4c8f1e33c8cf1790"
+      }
+    }
+  ],
+  "version" : 2
+}
