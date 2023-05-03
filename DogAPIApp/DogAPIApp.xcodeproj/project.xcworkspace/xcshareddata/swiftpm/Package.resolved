@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Tearez/DogAPIPackage.git",
       "state" : {
-        "revision" : "33541d7aa47fcc6ead9c8bfd5a61b16664b9ab3d",
-        "version" : "0.1.0"
+        "revision" : "b6a87ba4d5507468f36993eb8e71947482c67581",
+        "version" : "0.1.1"
       }
     },
     {
