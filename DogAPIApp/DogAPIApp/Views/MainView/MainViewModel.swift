@@ -16,6 +16,8 @@ final class MainViewModel: ObservableObject {
     private let repository: DogsRepositoryProtocol
     
     @MainActor @Published private(set) var presentedImage: MainViewState = .loading
+    @MainActor @Published var sheetData: [GalleryModel] = []
+    @Published var input: String = ""
     
     init(repository: DogsRepositoryProtocol) {
         self.repository = repository
@@ -66,6 +68,39 @@ final class MainViewModel: ObservableObject {
             await MainActor.run {
                 self.presentedImage = .loaded(url, true)
             }
+        }
+    }
+    
+    func submitInput() async {
+        guard let intInput = Int(input) else {
+            return
+        }
+        
+        switch intInput {
+        case _ where intInput == 1:
+            let result = await repository.getRandomDogImageUrl()
+            
+            switch result {
+            case .failure(let dogsError):
+                break
+            case .success(let url):
+                await MainActor.run {
+                    self.sheetData = [url].map { GalleryModel(url: $0) }
+                }
+            }
+        case _ where intInput > 1 && intInput <= 10:
+            let result = await repository.getRandomDogsImageUrls(intInput)
+            
+            switch result {
+            case .failure(let dogsError):
+                break
+            case .success(let urls):
+                await MainActor.run {
+                    self.sheetData = urls.map { GalleryModel(url: $0) }
+                }
+            }
+        default:
+            break
         }
     }
 }
