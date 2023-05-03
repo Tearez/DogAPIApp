@@ -11,6 +11,7 @@
 		D88CFC572A028D2C009A09C3 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88CFC562A028D2C009A09C3 /* GalleryView.swift */; };
 		D88CFC592A028D37009A09C3 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88CFC582A028D37009A09C3 /* GalleryViewModel.swift */; };
 		D88CFC5B2A029107009A09C3 /* Sheet+GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88CFC5A2A029107009A09C3 /* Sheet+GalleryView.swift */; };
+		D88CFC5E2A0299AD009A09C3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88CFC5D2A0299AD009A09C3 /* ErrorHandler.swift */; };
 		D8E113662A01570600086EA3 /* DogAPIAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113652A01570600086EA3 /* DogAPIAppApp.swift */; };
 		D8E113682A01570600086EA3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113672A01570600086EA3 /* MainView.swift */; };
 		D8E1136A2A01570700086EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8E113692A01570700086EA3 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		D88CFC562A028D2C009A09C3 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		D88CFC582A028D37009A09C3 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		D88CFC5A2A029107009A09C3 /* Sheet+GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sheet+GalleryView.swift"; sourceTree = "<group>"; };
+		D88CFC5D2A0299AD009A09C3 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		D8E113622A01570600086EA3 /* DogAPIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogAPIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E113652A01570600086EA3 /* DogAPIAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPIAppApp.swift; sourceTree = "<group>"; };
 		D8E113672A01570600086EA3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		D88CFC5C2A02999E009A09C3 /* ErrorHandler */ = {
+			isa = PBXGroup;
+			children = (
+				D88CFC5D2A0299AD009A09C3 /* ErrorHandler.swift */,
+			);
+			path = ErrorHandler;
+			sourceTree = "<group>";
+		};
 		D8E113592A01570600086EA3 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		D8E113642A01570600086EA3 /* DogAPIApp */ = {
 			isa = PBXGroup;
 			children = (
+				D88CFC5C2A02999E009A09C3 /* ErrorHandler */,
 				D88CFC542A028D11009A09C3 /* Views */,
 				D8E113992A01723700086EA3 /* Result */,
 				D8E113962A0171C200086EA3 /* Repositories */,
@@ -335,6 +346,7 @@
 				D8E1139B2A01724100086EA3 /* Result.swift in Sources */,
 				D8E113662A01570600086EA3 /* DogAPIAppApp.swift in Sources */,
 				D8E113982A0171D600086EA3 /* DogsRepository.swift in Sources */,
+				D88CFC5E2A0299AD009A09C3 /* ErrorHandler.swift in Sources */,
 				D88CFC592A028D37009A09C3 /* GalleryViewModel.swift in Sources */,
 				D8E113952A01719400086EA3 /* MainViewModel.swift in Sources */,
 			);

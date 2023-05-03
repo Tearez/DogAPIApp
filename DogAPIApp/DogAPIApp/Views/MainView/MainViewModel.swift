@@ -14,13 +14,16 @@ enum MainViewState {
 
 final class MainViewModel: ObservableObject {
     private let repository: DogsRepositoryProtocol
+    private let errorHandler: ErrorHandlerProtocol
     
     @MainActor @Published private(set) var presentedImage: MainViewState = .loading
     @MainActor @Published var sheetData: [GalleryModel] = []
     @Published var input: String = ""
     
-    init(repository: DogsRepositoryProtocol) {
+    init(repository: DogsRepositoryProtocol,
+         errorHandler: ErrorHandlerProtocol) {
         self.repository = repository
+        self.errorHandler = errorHandler
     }
     
     func initialLoad() async {
@@ -30,29 +33,21 @@ final class MainViewModel: ObservableObject {
         
         let result = await repository.getNextDogImageUrl()
         
-        switch result {
-        case .failure(let dogsError):
-            break
-        case .success(let url):
+        await handle(result) { item in
             await MainActor.run {
-                self.presentedImage = .loaded(url, false)
+                self.presentedImage = .loaded(item, false)
             }
+        } retryAction: { [weak self] in
+            await self?.initialLoad()
         }
     }
     
     func getNextImage() async {
-        await MainActor.run {
-            self.presentedImage = .loading
-        }
-        
         let result = await repository.getNextDogImageUrl()
         
-        switch result {
-        case .failure(let dogsError):
-            break
-        case .success(let url):
+        await handle(result) { item in
             await MainActor.run {
-                self.presentedImage = .loaded(url, true)
+                self.presentedImage = .loaded(item, true)
             }
         }
     }
@@ -60,12 +55,9 @@ final class MainViewModel: ObservableObject {
     func getPreviousImage() async {
         let result = repository.getPreviousDogImageUrl()
         
-        switch result {
-        case .failure(let dogsError):
-            break
-        case .success(let url):
-            guard let url = url else { return }
+        await handle(result) { item in
             await MainActor.run {
+                guard let url = item else { return }
                 self.presentedImage = .loaded(url, true)
             }
         }
@@ -73,6 +65,7 @@ final class MainViewModel: ObservableObject {
     
     func submitInput() async {
         guard let intInput = Int(input) else {
+            errorHandler.handle("Input must a number between 1 & 10", dismissHandler: nil, retryHandler: nil)
             return
         }
         
@@ -80,27 +73,32 @@ final class MainViewModel: ObservableObject {
         case _ where intInput == 1:
             let result = await repository.getRandomDogImageUrl()
             
-            switch result {
-            case .failure(let dogsError):
-                break
-            case .success(let url):
+            await handle(result) { item in
                 await MainActor.run {
-                    self.sheetData = [url].map { GalleryModel(url: $0) }
+                    self.sheetData = [item].map { GalleryModel(url: $0) }
                 }
             }
         case _ where intInput > 1 && intInput <= 10:
             let result = await repository.getRandomDogsImageUrls(intInput)
-            
-            switch result {
-            case .failure(let dogsError):
-                break
-            case .success(let urls):
+            await handle(result) { items in
                 await MainActor.run {
-                    self.sheetData = urls.map { GalleryModel(url: $0) }
+                    self.sheetData = items.map { GalleryModel(url: $0) }
                 }
             }
         default:
-            break
+            errorHandler.handle("Input must a number between 1 & 10", dismissHandler: nil, retryHandler: nil)
+        }
+    }
+}
+
+// MARK: - Private
+private extension MainViewModel {
+    func handle<T>(_ result: Result<T>, success: @escaping (T) async -> Void, retryAction: (() async -> Void)? = nil) async {
+        switch result {
+        case .failure(let dogsError):
+            errorHandler.handle(dogsError.error, dismissHandler: nil, retryHandler: retryAction)
+        case .success(let item):
+            await success(item)
         }
     }
 }

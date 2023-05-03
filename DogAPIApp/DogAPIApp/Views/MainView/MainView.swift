@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct MainView: View {
-    @StateObject private var viewModel: MainViewModel = .init(repository: DogsRepository())
+    @StateObject private var viewModel: MainViewModel = .init(repository: DogsRepository(), errorHandler: ErrorHandler())
     @FocusState private var isFocused
     
     var body: some View {
