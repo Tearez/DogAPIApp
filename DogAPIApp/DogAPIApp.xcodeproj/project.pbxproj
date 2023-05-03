@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D88CFC532A02550B009A09C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D88CFC522A02550B009A09C3 /* Kingfisher */; };
 		D8E113662A01570600086EA3 /* DogAPIAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113652A01570600086EA3 /* DogAPIAppApp.swift */; };
-		D8E113682A01570600086EA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113672A01570600086EA3 /* ContentView.swift */; };
+		D8E113682A01570600086EA3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113672A01570600086EA3 /* MainView.swift */; };
 		D8E1136A2A01570700086EA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8E113692A01570700086EA3 /* Assets.xcassets */; };
 		D8E1136E2A01570700086EA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8E1136D2A01570700086EA3 /* Preview Assets.xcassets */; };
 		D8E113782A01570700086EA3 /* DogAPIAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113772A01570700086EA3 /* DogAPIAppTests.swift */; };
 		D8E113822A01570700086EA3 /* DogAPIAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113812A01570700086EA3 /* DogAPIAppUITests.swift */; };
 		D8E113842A01570700086EA3 /* DogAPIAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113832A01570700086EA3 /* DogAPIAppUITestsLaunchTests.swift */; };
 		D8E113922A01579C00086EA3 /* DogAPIPackage in Frameworks */ = {isa = PBXBuildFile; productRef = D8E113912A01579C00086EA3 /* DogAPIPackage */; };
+		D8E113952A01719400086EA3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113942A01719400086EA3 /* MainViewModel.swift */; };
+		D8E113982A0171D600086EA3 /* DogsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E113972A0171D600086EA3 /* DogsRepository.swift */; };
+		D8E1139B2A01724100086EA3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1139A2A01724100086EA3 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,7 @@
 /* Begin PBXFileReference section */
 		D8E113622A01570600086EA3 /* DogAPIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogAPIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E113652A01570600086EA3 /* DogAPIAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPIAppApp.swift; sourceTree = "<group>"; };
-		D8E113672A01570600086EA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D8E113672A01570600086EA3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D8E113692A01570700086EA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8E1136B2A01570700086EA3 /* DogAPIApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogAPIApp.entitlements; sourceTree = "<group>"; };
 		D8E1136D2A01570700086EA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -46,6 +50,9 @@
 		D8E1137D2A01570700086EA3 /* DogAPIAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogAPIAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E113812A01570700086EA3 /* DogAPIAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPIAppUITests.swift; sourceTree = "<group>"; };
 		D8E113832A01570700086EA3 /* DogAPIAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPIAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8E113942A01719400086EA3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D8E113972A0171D600086EA3 /* DogsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsRepository.swift; sourceTree = "<group>"; };
+		D8E1139A2A01724100086EA3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88CFC532A02550B009A09C3 /* Kingfisher in Frameworks */,
 				D8E113922A01579C00086EA3 /* DogAPIPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,8 +105,10 @@
 		D8E113642A01570600086EA3 /* DogAPIApp */ = {
 			isa = PBXGroup;
 			children = (
+				D8E113992A01723700086EA3 /* Result */,
+				D8E113962A0171C200086EA3 /* Repositories */,
+				D8E113932A01716400086EA3 /* MainView */,
 				D8E113652A01570600086EA3 /* DogAPIAppApp.swift */,
-				D8E113672A01570600086EA3 /* ContentView.swift */,
 				D8E113692A01570700086EA3 /* Assets.xcassets */,
 				D8E1136B2A01570700086EA3 /* DogAPIApp.entitlements */,
 				D8E1136C2A01570700086EA3 /* Preview Content */,
@@ -131,6 +141,31 @@
 			path = DogAPIAppUITests;
 			sourceTree = "<group>";
 		};
+		D8E113932A01716400086EA3 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				D8E113672A01570600086EA3 /* MainView.swift */,
+				D8E113942A01719400086EA3 /* MainViewModel.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		D8E113962A0171C200086EA3 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				D8E113972A0171D600086EA3 /* DogsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D8E113992A01723700086EA3 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1139A2A01724100086EA3 /* Result.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +184,7 @@
 			name = DogAPIApp;
 			packageProductDependencies = (
 				D8E113912A01579C00086EA3 /* DogAPIPackage */,
+				D88CFC522A02550B009A09C3 /* Kingfisher */,
 			);
 			productName = DogAPIApp;
 			productReference = D8E113622A01570600086EA3 /* DogAPIApp.app */;
@@ -224,6 +260,7 @@
 			mainGroup = D8E113592A01570600086EA3;
 			packageReferences = (
 				D8E113902A01579C00086EA3 /* XCRemoteSwiftPackageReference "DogAPIPackage" */,
+				D88CFC512A02550B009A09C3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = D8E113632A01570600086EA3 /* Products */;
 			projectDirPath = "";
@@ -267,8 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8E113682A01570600086EA3 /* ContentView.swift in Sources */,
+				D8E113682A01570600086EA3 /* MainView.swift in Sources */,
+				D8E1139B2A01724100086EA3 /* Result.swift in Sources */,
 				D8E113662A01570600086EA3 /* DogAPIAppApp.swift in Sources */,
+				D8E113982A0171D600086EA3 /* DogsRepository.swift in Sources */,
+				D8E113952A01719400086EA3 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -407,6 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -445,10 +487,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.martindimitrov.DogAPIApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -483,10 +527,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.martindimitrov.DogAPIApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -622,6 +668,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D88CFC512A02550B009A09C3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.6.2;
+			};
+		};
 		D8E113902A01579C00086EA3 /* XCRemoteSwiftPackageReference "DogAPIPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Tearez/DogAPIPackage.git";
@@ -633,6 +687,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D88CFC522A02550B009A09C3 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D88CFC512A02550B009A09C3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		D8E113912A01579C00086EA3 /* DogAPIPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D8E113902A01579C00086EA3 /* XCRemoteSwiftPackageReference "DogAPIPackage" */;
