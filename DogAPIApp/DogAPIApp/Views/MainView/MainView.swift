@@ -16,7 +16,7 @@ struct MainView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
                 Group {
-                    switch viewModel.presentedImage {
+                    switch viewModel.state {
                     case .loading:
                         loader
                     case .loaded(let url, let previousButtonEnabled):

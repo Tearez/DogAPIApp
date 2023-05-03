@@ -16,7 +16,7 @@ final class MainViewModel: ObservableObject {
     private let repository: DogsRepositoryProtocol
     private let errorHandler: ErrorHandlerProtocol
     
-    @MainActor @Published private(set) var presentedImage: MainViewState = .loading
+    @MainActor @Published private(set) var state: MainViewState = .loading
     @MainActor @Published var sheetData: [GalleryModel] = []
     @Published var input: String = ""
     
@@ -28,14 +28,14 @@ final class MainViewModel: ObservableObject {
     
     func initialLoad() async {
         await MainActor.run {
-            self.presentedImage = .loading
+            self.state = .loading
         }
         
         let result = await repository.getNextDogImageUrl()
         
         await handle(result) { item in
             await MainActor.run {
-                self.presentedImage = .loaded(item, false)
+                self.state = .loaded(item, false)
             }
         } retryAction: { [weak self] in
             await self?.initialLoad()
@@ -47,7 +47,7 @@ final class MainViewModel: ObservableObject {
         
         await handle(result) { item in
             await MainActor.run {
-                self.presentedImage = .loaded(item, true)
+                self.state = .loaded(item, true)
             }
         }
     }
@@ -58,7 +58,7 @@ final class MainViewModel: ObservableObject {
         await handle(result) { item in
             await MainActor.run {
                 guard let url = item else { return }
-                self.presentedImage = .loaded(url, true)
+                self.state = .loaded(url, true)
             }
         }
     }
